@@ -14,7 +14,7 @@ on:
 
 jobs:
   say-hello:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
     # GitHub provides a fresh runner for the job.
     runs-on: ubuntu-latest
 
@@ -24,4 +24,4 @@ jobs:
         run: echo "Hello from GitHub Actions"
 
       - name: Say bye
-        run: echo "Bye from GitHub Actions new pull 2"
+        run: echo "Bye from GitHub Actions new pull test draft"
