@@ -6,6 +6,9 @@ def route_request(path):
     if path == "/health":
         return 200, {"status": "ok"}
 
+    if path == "/hello"
+        return 200, {"status": "ok",data:"bye"}
+
     return 404, {"error": "not found"}
 
 
