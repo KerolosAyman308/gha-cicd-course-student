@@ -8,7 +8,7 @@ on:
     branches:
       - master
     types:
-      -
+      - closed
   # Allow a safe manual run from the Actions tab too.
   workflow_dispatch:
 
