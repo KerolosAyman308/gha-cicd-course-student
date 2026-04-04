@@ -3,8 +3,6 @@
 name: 02 CI Workflow
 
 on:
-  schedule:
-    - cron: "25 9 * * *"
   # Run automatically when app code, tests, or this workflow file changes.
   push:
     paths:
@@ -16,6 +14,9 @@ on:
 
 jobs:
   run-tests:
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.14"]
     # The runner is the temporary machine that executes the steps below.
     runs-on: ubuntu-latest
 
@@ -28,14 +29,14 @@ jobs:
         # Prepare Python on the runner. This does not change the student laptop.
         uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
 
       - name: Run tests
         # This is the key verification step in the CI workflow.
         run: python -m unittest discover -s tests -v
 
-      - name: List repo files 
-        run: pwd && ls 
+      - name: List repo files
+        run: pwd && ls
 
       - name: get python version
         # This is the key verification step in the CI workflow.
