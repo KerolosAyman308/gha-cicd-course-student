@@ -46,6 +46,8 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: false
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
           tags: ${{ env.IMAGE_NAME }}:${{ steps.image-tag.outputs.image_tag }}
           outputs: type=docker,dest=${{ runner.temp }}/${{ env.IMAGE_TAR }}
 
