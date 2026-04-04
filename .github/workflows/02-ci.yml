@@ -31,3 +31,14 @@ jobs:
       - name: Run tests
         # This is the key verification step in the CI workflow.
         run: python -m unittest discover -s tests -v
+
+      - name: List repo files 
+        run: pwd && ls 
+
+      - name: get python version
+        # This is the key verification step in the CI workflow.
+        run: python --version
+
+      - name: Get runner date
+        # This is the key verification step in the CI workflow.
+        run: date
