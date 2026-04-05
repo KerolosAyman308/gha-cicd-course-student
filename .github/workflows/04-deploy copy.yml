@@ -35,6 +35,7 @@ jobs:
             PYTHON_VERSION=${{ env.BASE_IMAGE }}
             PORT=${{ env.APP_PORT }}
           file: ./DockerfileNew
+          load: true
           push: false
           cache-from: type=gha
           cache-to: type=gha,mode=max
