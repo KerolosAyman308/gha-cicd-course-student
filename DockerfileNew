@@ -1,0 +1,11 @@
+ARG PYTHON_VERSION=python:3.12-slim
+ARG PORT=8000
+FROM ${PYTHON_VERSION}
+
+WORKDIR /app
+
+COPY app ./app
+
+EXPOSE ${PORT}
+
+CMD ["python", "app/app.py"]
