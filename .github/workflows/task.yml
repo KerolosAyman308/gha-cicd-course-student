@@ -52,6 +52,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
+          build-args: |
+            PYTHON_VERSION=${{ matrix.python-version }}
           push: false
           cache-from: type=gha
           cache-to: type=gha,mode=max
