@@ -2,6 +2,9 @@ name: Azure verify
 
 on:
   pull_request:
+    types:
+      - synchronize
+      - opened
     branches:
       - master
 jobs:
@@ -19,3 +22,7 @@ jobs:
 
       - name: Run tests
         run: python -m unittest discover -s tests -v
+
+      - name: sleep 2
+        run: |
+          sleep 2
