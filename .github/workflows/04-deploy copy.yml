@@ -51,7 +51,7 @@ jobs:
       - name: Smoke test deployed app
         run: |
           for attempt in 1 2 3 4 5; do
-            if curl --fail --silent http://127.0.0.1:8000/health; then
+            if curl --fail --silent http://127.0.0.1:${{ env.APP_PORT }}/health; then
               exit 0
             fi
             echo "Waiting for app to become ready..."
