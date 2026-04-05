@@ -1,5 +1,5 @@
 ARG PYTHON_VERSION=3.12
-FROM python:${NODE_VERSION}-slim
+FROM python:${PYTHON_VERSION}-slim
 
 WORKDIR /app
 
